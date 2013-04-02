@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Galleria Yandex Plugin</title>
+        <style>
+            /* Demo styles */
+            #galleria{height:620px;}
+            .galleria-container{height:100%;overflow:hidden;position:fixed;top:0;left:0;width:100%;}
+        </style>
+
+        <!-- load jQuery -->
+        <script src="http://yandex.st/jquery/1.9.0/jquery.min.js"></script>
+        <!-- load Galleria -->
+        <script src="galleria-1.2.9.js"></script>      
+        <!-- load yandex plugin -->
+        <script src="plugins/yandex_fotki/galleria.yandex_fotki.js"></script>
+    </head>
+<body>
+    <div class="content">
+        <div id="galleria"></div>
+    </div>
+
+    <!-- load mousewheel lib -->
+    <script src="http://yandex.st/jquery/mousewheel/3.0.6/jquery.mousewheel.min.js"></script>
+    <!-- load history plugin -->
+    <script src="plugins/history/galleria.history.min.js"></script>
+    <script type="text/javascript">
+
+    Galleria.loadTheme('themes/classic_ya/galleria.classic.js');
+    
+    var user = 'aig1001';
+    var useralbum = '63684';
+
+    var fotki = new Galleria.Fotki(user);
+    
+    fotki.getAllPhotos(function(data) {
+        $('#galleria').galleria({
+            data_source: data,
+            show_imagenav: true,
+            showInfo: false,
+            showCounter: false,
+        });
+    });
+    </script>    
+    </body>
+</html>
